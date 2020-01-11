@@ -4,7 +4,7 @@ import com.shh.ioc.dao.AccountDao;
 import com.shh.domain.Account;
 
 //@Primary
-//@Service
+//@Repository
 public class AccountDaoImpl2 implements AccountDao {
     public Account findAccountById(int id) {
         return new Account();

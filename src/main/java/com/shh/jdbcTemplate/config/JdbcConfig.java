@@ -15,16 +15,16 @@ import java.beans.PropertyVetoException;
 public class JdbcConfig {
     @Value("${database.driver}")
     private String driverClass;
-    @Value("${database.jdbcUrl}")
+    @Value("${database.url}")
     private String jdbcUrl;
-    @Value("${database.user}")
+    @Value("${database.username}")
     private String user;
     @Value("${database.password}")
     private String password;
 
     @Bean("jdbcTemplate")
     public JdbcTemplate createJdbcTemplate(DataSource dataSource) {
-        return new JdbcTemplate();
+        return new JdbcTemplate(dataSource);
     }
 
     @Bean("dataSource")

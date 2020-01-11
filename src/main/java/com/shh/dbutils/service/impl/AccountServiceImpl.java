@@ -22,7 +22,7 @@ public class AccountServiceImpl implements IAccountService {
         account2.setMoney(account2.getMoney() + money);
         // 5.更新转出账户
         accountDao.updateAccount(account1);
-        int s = 1/0;
+//        int s = 1/0;
         // 6.更新转入账户
         accountDao.updateAccount(account2);
     }

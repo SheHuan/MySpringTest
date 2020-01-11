@@ -7,8 +7,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-//@ContextConfiguration(locations = {"classpath:jdbc-template.xml"})
-@ContextConfiguration(classes = {SpringConfig.class})
+@ContextConfiguration(locations = {"classpath:jdbc-template.xml"})
+//@ContextConfiguration(classes = {SpringConfig.class})
 public class JdbcTemplateTest {
     @Autowired
     private IAccountService accountService;
