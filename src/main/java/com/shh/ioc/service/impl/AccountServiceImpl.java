@@ -4,9 +4,9 @@ import com.shh.ioc.dao.AccountDao;
 import com.shh.domain.Account;
 import com.shh.ioc.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component("accountService")
+@Service("accountService")
 public class AccountServiceImpl implements AccountService {
 
     @Autowired

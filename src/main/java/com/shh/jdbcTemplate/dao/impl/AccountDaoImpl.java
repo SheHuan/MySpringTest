@@ -5,9 +5,9 @@ import com.shh.jdbcTemplate.dao.IAccountDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component("accountDao")
+@Repository("accountDao")
 public class AccountDaoImpl implements IAccountDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;

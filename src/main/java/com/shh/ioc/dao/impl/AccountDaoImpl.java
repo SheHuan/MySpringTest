@@ -3,9 +3,9 @@ package com.shh.ioc.dao.impl;
 import com.shh.ioc.dao.AccountDao;
 import com.shh.domain.Account;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class AccountDaoImpl implements AccountDao {
 
     @Autowired

@@ -6,11 +6,11 @@ import com.shh.domain.Account;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.sql.SQLException;
 
-@Component("accountDao")
+@Repository("accountDao")
 public class AccountDaoImpl implements IAccountDao {
     @Autowired
     private QueryRunner queryRunner;

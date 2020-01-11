@@ -4,10 +4,10 @@ import com.shh.domain.Account;
 import com.shh.jdbcTemplate.dao.IAccountDao;
 import com.shh.jdbcTemplate.service.IAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-@Component("accountService")
+@Service("accountService")
 //@Transactional
 public class AccountServiceImpl implements IAccountService {
     @Autowired
