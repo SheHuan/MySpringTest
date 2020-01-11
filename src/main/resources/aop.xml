@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--将CoffeeShop类交给IoC管理-->
+    <bean id="coffeeShop" class="com.shh.aop.CoffeeShop"/>
+    <!--将招呼的通知类交给IoC管理-->
+    <bean id="greet" class="com.shh.aop.Greet"/>
+
+    <!--Spring中基于xml的AOP配置-->
+    <!--1.使用<aop:pointcut>定义切入点表达式，注意要定义在<aop:aspect>前，如果定义在<aop:aspect>标签里只能当前切面使用，不能公用-->
+    <!--2.使用<aop:config>标签开始配置AOP-->
+    <!--3.使用<aop:aspect>标签配置切面
+          id：切面的唯一标识。
+          ref：需要引用通知类的bean id。-->
+    <!--4.使用<aop:before>标签配置前置通知
+              method：用Greet类的那个方法作为通知方法，即欢迎客户。
+              pointcut-ref：配置切入点表达式的引用，指定要对CoffeeShop类中的那些方法使用前置通知，实现增强。
+          使用<aop:after-returning>标签配置后置通知
+          使用<aop:after-throwing>标签配置异常通知
+          使用<aop:after>标签配置最终通知
+          使用<aop:around>配置环绕通知-->
+    <aop:config>
+        <aop:pointcut id="sale" expression="execution(* com.shh.aop.CoffeeShop.sale(..))"/>
+        <aop:aspect id="greetAdvice" ref="greet">
+            <aop:before method="welcome" pointcut-ref="sale"/>
+            <aop:after-returning method="cashier" pointcut-ref="sale"/>
+            <aop:after-throwing method="soldOut" pointcut-ref="sale"/>
+            <aop:after method="goodbye" pointcut-ref="sale"/>
+
+<!--            <aop:around method="greeting" pointcut-ref="sale"/>-->
+        </aop:aspect>
+    </aop:config>
+
+</beans>
